@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Backend test - ALGORITMA</h2>
+<button onclick="myFunction()">No - 1</button>
+<button onclick="myFunction1()">No - 2</button>
+<button onclick="myFunction2(INPUT)">No - 3</button>
+<button onclick="myFunction3()">No - 4</button>
+
+<p id="demo"></p>
+<p id="demo0"></p>
+<p id="demo1"></p>
+<p id="demo2"></p> 
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+
+<script>
+const x  = 'NEGIE1';
+const xi = "Saya sangat senang mengerjakan soal algoritma"
+const INPUT = ['xc', 'dz', 'bbb', 'dz']
+const QUERY = ['bbb', 'ac', 'dz']
+const Matrix = [[1, 2, 0],[4, 5, 6],[7, 8, 9]]
+
+
+document.getElementById("demo").innerHTML = x;
+document.getElementById("demo1").innerHTML = xi;
+document.getElementById("demo3").innerHTML = 'Input = '+INPUT + ' Output = ' + QUERY;
+
+function myFunction() {
+ let hasil = []
+ let hasil1 = ''
+ x.split('').map(x => {
+    if (isNaN(x)) hasil.push(x) ; hasil1 = x
+ })
+ document.getElementById("demo0").innerHTML = hasil.reverse().join('')+hasil1;
+}
+function myFunction1() {
+    let a = 0;
+    for(let i of xi.split(' ')){if(i.length>a) ic = i; a = i.length}
+document.getElementById("demo2").innerHTML =`kata terpanjang adalah "${ic}" dg "${a}" karakter`;
+}
+
+function myFunction2(value) {
+   let data = []
+   let obj = {}
+   value.map(x => {
+        if (typeof obj[x] == 'undefined') {
+            obj[x] = 1
+            return x
+        }
+        return ++obj[x]
+    })
+    QUERY.filter((x, i )=> {
+        if (INPUT.includes(x)) {
+            data.push(obj[x])
+        } else {
+            data.push(0)
+        }
+    })
+
+     document.getElementById("demo4").innerHTML = 'hasil = '+data
+}
+
+function myFunction3(){
+    let xi = 0
+    let xii = 0
+    let ix = ''
+    let iix = ''
+    Matrix.map((x , i)=> {
+        iix += x[x.length - i - 1].toString()+ ' + '
+        ix += x[i].toString()+ ' + '
+        xi += x[i]
+        xii += x[x.length - i - 1]
+    })
+    document.getElementById("demo5").innerHTML = `${ix.substr(0, ix.lastIndexOf('+'))} = ${xi}`
+    document.getElementById("demo6").innerHTML = `${iix.substr(0, ix.lastIndexOf('+'))} = ${xii}`
+    document.getElementById("demo7").innerHTML = `${xi} - ${xii} = ${xi - xii}`
+}
+</script>
+
+</body>
+</html>
